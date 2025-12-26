@@ -30,8 +30,9 @@ const page = () => {
 					<Link
 						href={"/auth"}
 						className="text-primary underline">
-						Login Now
+						Login
 					</Link>
+					Now
 				</CardFooter>
 			</Card>
 		</section>
