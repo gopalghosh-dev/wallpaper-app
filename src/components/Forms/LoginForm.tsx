@@ -7,7 +7,11 @@ import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 
 const LoginForm = () => {
-	const { handleSubmit, control } = useForm({
+	const {
+		handleSubmit,
+		control,
+		formState: { isSubmitting },
+	} = useForm({
 		resolver: zodResolver(loginSchema),
 		defaultValues: {
 			email: "",
@@ -17,7 +21,7 @@ const LoginForm = () => {
 		mode: "all",
 	});
 
-	const loginFormHandeler = (loginFormData: LoginSchemaType) => {
+	const loginFormHandeler = async (loginFormData: LoginSchemaType) => {
 		console.log(loginFormData);
 	};
 
@@ -39,6 +43,25 @@ const LoginForm = () => {
 							type="email"
 							placeholder="Enter Your Email"
 							autoComplete="email"
+						/>
+						{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+					</Field>
+				)}
+			/>
+
+			<Controller
+				name="password"
+				control={control}
+				render={({ field, fieldState }) => (
+					<Field data-invalid={fieldState.invalid}>
+						<FieldLabel htmlFor={field.name}>Password</FieldLabel>
+						<Input
+							{...field}
+							id={field.name}
+							aria-invalid={fieldState.invalid}
+							type="password"
+							placeholder="Enter Your Password"
+							autoComplete="current-password"
 						/>
 						{fieldState.invalid && <FieldError errors={[fieldState.error]} />}
 					</Field>
