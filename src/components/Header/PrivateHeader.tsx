@@ -1,6 +1,6 @@
+import LogoutButton from "@/components/Buttons/LogoutButton";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Link from "next/link";
-import LogoutButton from "../Buttons/LogoutButton";
-import ThemeToggleButton from "../ThemeToggleButton";
 
 const Header = () => {
 	return (
@@ -12,12 +12,14 @@ const Header = () => {
 					<h1
 						className="text-2xl font-semibold"
 						aria-label="App Name">
-						NSP App
+						Wallpaper App
 					</h1>
 				</Link>
 
 				<nav className="flex items-center gap-4">
-					<Link href={"/"}>Home</Link>
+					<Link href={"/studio"}>Studio</Link>
+					<Link href={"/studio/create"}>Create</Link>
+
 					<LogoutButton />
 
 					<ThemeToggleButton />

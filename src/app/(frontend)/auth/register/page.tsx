@@ -20,18 +20,21 @@ const page = () => {
 			<Card className="w-xs">
 				<CardHeader>
 					<CardTitle className="text-center text-2xl font-semibold">
-						Join With Us 👍
+						Join Us
 					</CardTitle>
-					<RegisterForm />
 				</CardHeader>
-				<CardContent></CardContent>
-				<CardFooter className="gap-1 text-center">
+
+				<CardContent>
+					<RegisterForm />
+				</CardContent>
+
+				<CardFooter className="flex items-center justify-center gap-1">
 					Already have an account?{" "}
 					<Link
-						href={"/auth"}
-						className="text-primary underline">
+						className="hover:underline"
+						href={"/auth"}>
 						Login
-					</Link>
+					</Link>{" "}
 					Now
 				</CardFooter>
 			</Card>

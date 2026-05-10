@@ -1,6 +1,6 @@
+import LoginDashboardButton from "@/components/Buttons/LoginDashboardButton";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 import Link from "next/link";
-import LoginDashboardButton from "../Buttons/LoginDashboardButton";
-import ThemeToggleButton from "../ThemeToggleButton";
 
 const Header = () => {
 	return (
@@ -12,13 +12,11 @@ const Header = () => {
 					<h1
 						className="text-2xl font-semibold"
 						aria-label="App Name">
-						NSP App
+						Wallpaper App
 					</h1>
 				</Link>
 
 				<nav className="flex items-center gap-4">
-					<Link href={"/"}>Home</Link>
-
 					<LoginDashboardButton />
 
 					<ThemeToggleButton />

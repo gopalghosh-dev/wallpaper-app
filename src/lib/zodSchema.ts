@@ -1,8 +1,8 @@
 import z from "zod";
 
 export const loginSchema = z.object({
-	email: z.email("You have typed an invalid email address"),
-	password: z.string().min(8, "Password should be needed 8 character"),
+	email: z.email("Invalid Email address"),
+	password: z.string().min(8, "Password must be 8 charecters long"),
 	rememberMe: z.boolean(),
 });
 
@@ -10,15 +10,21 @@ export type LoginSchemaType = z.infer<typeof loginSchema>;
 
 export const registerSchema = z
 	.object({
-		name: z.string().min(6, "Enter your name"),
-		email: z.email("You have typed an invalid email address"),
-		password: z.string().min(8, "Password must be minimum 8 character"),
+		name: z.string().min(6, "Input a valid Name"),
+		email: z.email("Invalid Email address"),
+		password: z.string().min(8, "Password must be 8 charecters long"),
 		confirmPassword: z
 			.string()
-			.min(8, "Confirm password must be minimum 8 character"),
+			.min(8, "Confirm Password must be 8 charecters long"),
 	})
 	.refine(({ password, confirmPassword }) => password === confirmPassword, {
 		error: "Password didn't match",
 	});
 
 export type RegisterSchemaType = z.infer<typeof registerSchema>;
+
+export const tagSchema = z.object({
+	slug: z.string().min(3, "Input a valid tag name"),
+});
+
+export type TagSchemaType = z.infer<typeof tagSchema>;
